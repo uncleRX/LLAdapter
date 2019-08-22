@@ -18,4 +18,6 @@
 
 @property (nonatomic, strong) UIView *backgroundView; ///< UITableViewHeaderFooterView.backgroundView
 
+@property (copy, nonatomic) LLAdapterCellAction(cellClick, LLTableSectionReusableCell *);
+
 @end
