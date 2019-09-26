@@ -39,7 +39,8 @@ typedef NS_ENUM(NSInteger, LLTableViewCellSeparatorStyle) {
 @interface LLBaseCell <LLCellDataType>: NSObject
 
 /// kvc 透传数据
-@property (strong, nonatomic) NSMutableDictionary<NSString *, id> *kvcExt;
+@property (strong, nonatomic,readonly) NSMutableDictionary<NSString *, id> *kvcExt;
+
 /// 行索引信息
 @property (weak, nonatomic) NSIndexPath *indexPath;
 /// cell类
@@ -53,5 +54,21 @@ typedef NS_ENUM(NSInteger, LLTableViewCellSeparatorStyle) {
 
 /// 数据
 @property (strong, nonatomic) LLCellDataType data;
+
+///
+/// 使用kvc 给cell的 属性增加值
+/// object: 值
+///
+- (void)addObject:(id)object forCellPath:(NSString *)path;
+
+/// 内部使用NSValue包装(弱引用)
+- (void)addWeakObject:(id)object forCellPath:(NSString *)path;
+
+// 获取弱引用键值对
+- (NSDictionary *)getWeakKvcMaps;
+
+// 获取kvc透传键值对
+- (NSDictionary *)getKvcMaps;
+
 
 @end

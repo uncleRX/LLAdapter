@@ -24,6 +24,7 @@
 
 /// 行高
 @property (assign, nonatomic) CGFloat cellHeight;
+
 /// 选择的样式 默认 UITableViewCellSelectionStyleNone
 @property (assign, nonatomic) UITableViewCellSelectionStyle selectionStyle;
 /// 附件样式 默认 UITableViewCellAccessoryNone

@@ -26,8 +26,12 @@ static NSString *colLLModelkey = @"UICollectionReusableView+Modelkey";
 - (void)ll_updateCellUI {
     __weak typeof(self) weakSelf = self;
     /// 透传数据
-    [self.ll_model.kvcExt enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    [self.ll_model.getKvcMaps enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [weakSelf setValue:obj forKeyPath:key];
+    }];
+    
+    [self.ll_model.getWeakKvcMaps enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSValue *obj, BOOL * _Nonnull stop) {
+        [weakSelf setValue:obj.nonretainedObjectValue forKey:key];
     }];
 }
 
