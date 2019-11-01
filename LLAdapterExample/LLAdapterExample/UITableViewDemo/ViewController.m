@@ -47,7 +47,7 @@
         simpleCell.cellClazz = UITableViewHeaderFooterView.class;
         simpleCell.loadType = LLCellLoadTypeOri;
         simpleCell.cellHeight = 60;
-        simpleCell.text = @"头部需要继承UITableViewHeaderFooterView ";
+        simpleCell.text = @"- 我是头部 -";
         section.headerCell = simpleCell;
     }
     
@@ -58,7 +58,7 @@
         simpleCell.cellClazz = UITableViewHeaderFooterView.class;
         simpleCell.loadType = LLCellLoadTypeOri;
         simpleCell.cellHeight = 32;
-        simpleCell.text = @"实现 - (void)ll_updateCellUI 方法";
+        simpleCell.text = @"- 我是尾部 -";
         section.footerCell = simpleCell;
     }
     
@@ -94,14 +94,6 @@
     sectionTitleCell.loadType = LLCellLoadTypeInner;
     sectionTitleCell.text = @"sectionHeaderTitle and sectionFooterTitle";
     
-    LLTableCell *collectCell = [section buildAddCell];
-    collectCell.cellClick = ^(LLTableCell *cell, NSIndexPath *indexPath) {
-        CollectionController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectionController"];
-        [self.navigationController pushViewController:vc animated:true];
-    };
-    collectCell.loadType = LLCellLoadTypeInner;
-    collectCell.text = @"collectCell";
-
     [self.adapter reloadData];
 }
 

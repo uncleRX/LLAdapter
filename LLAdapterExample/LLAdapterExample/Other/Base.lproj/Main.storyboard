@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ln5-VK-Akg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ln5-VK-Akg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--适配器 Demo-->
+        <!--Demo-->
+        <scene sceneID="ObI-0j-muo">
+            <objects>
+                <viewController id="isC-KW-Fq0" customClass="IndexController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xOa-gh-8yf"/>
+                        <viewControllerLayoutGuide type="bottom" id="mtp-Gg-WET"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Jb-ez-Z8G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="885-Aq-FCV">
+                                <rect key="frame" x="70.5" y="94" width="234" height="60"/>
+                                <color key="backgroundColor" red="0.95166817749999999" green="1" blue="0.40475345680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="21o-UC-5cz"/>
+                                    <constraint firstAttribute="height" constant="60" id="qG2-16-DbG"/>
+                                </constraints>
+                                <state key="normal" title="UITableView"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="JtK-D9-Re5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4h-g8-B2W">
+                                <rect key="frame" x="70.5" y="176" width="234" height="60"/>
+                                <color key="backgroundColor" red="0.95166817749999999" green="1" blue="0.40475345680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="UICollectionView"/>
+                                <connections>
+                                    <action selector="collectionAction:" destination="isC-KW-Fq0" eventType="touchUpInside" id="hdb-Mo-dhk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="885-Aq-FCV" firstAttribute="centerX" secondItem="6Jb-ez-Z8G" secondAttribute="centerX" id="4Lo-ee-7u2"/>
+                            <constraint firstItem="B4h-g8-B2W" firstAttribute="top" secondItem="885-Aq-FCV" secondAttribute="bottom" constant="22" id="BDR-4s-Sh6"/>
+                            <constraint firstItem="B4h-g8-B2W" firstAttribute="height" secondItem="885-Aq-FCV" secondAttribute="height" id="Bhw-FH-z4M"/>
+                            <constraint firstItem="885-Aq-FCV" firstAttribute="top" secondItem="xOa-gh-8yf" secondAttribute="bottom" constant="30" id="Cji-s2-Tg6"/>
+                            <constraint firstItem="B4h-g8-B2W" firstAttribute="width" secondItem="885-Aq-FCV" secondAttribute="width" id="JnZ-FJ-o1B"/>
+                            <constraint firstItem="B4h-g8-B2W" firstAttribute="centerX" secondItem="6Jb-ez-Z8G" secondAttribute="centerX" id="zJi-ol-L8x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Demo" id="k6K-Kq-AG2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wne-hT-9x2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175" y="72"/>
+        </scene>
+        <!--UITableView Demo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -61,14 +110,14 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zKA-cc-GKp" secondAttribute="bottom" id="oW5-MO-f16"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="适配器 Demo" id="jZc-W2-zzk"/>
+                    <navigationItem key="navigationItem" title="UITableView Demo" id="jZc-W2-zzk"/>
                     <connections>
                         <outlet property="simpleTable" destination="zKA-cc-GKp" id="9Rr-qF-dFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="146"/>
+            <point key="canvasLocation" x="772" y="51"/>
         </scene>
         <!--简单-->
         <scene sceneID="Yqv-EW-Aqb">
@@ -130,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZX-2x-FG3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.60000000000002" y="163.26836581709148"/>
+            <point key="canvasLocation" x="1460" y="51"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1MF-DO-tpA">
@@ -141,12 +190,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5xO-Do-anj"/>
+                        <segue destination="isC-KW-Fq0" kind="relationship" relationship="rootViewController" id="YK4-8y-eIh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKb-1w-f6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602" y="141"/>
+            <point key="canvasLocation" x="-1122" y="51"/>
         </scene>
         <!--自定义-->
         <scene sceneID="pjc-sb-r9d">
@@ -237,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8rQ-L5-opv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="134"/>
+            <point key="canvasLocation" x="2257" y="72"/>
         </scene>
         <!--Collection Controller-->
         <scene sceneID="5Qe-k6-7IY">
@@ -296,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ql1-CU-Uap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2492" y="353.9730134932534"/>
+            <point key="canvasLocation" x="2426" y="822"/>
         </scene>
         <!--自定义-->
         <scene sceneID="NaE-as-JoS">
