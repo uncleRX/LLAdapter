@@ -26,4 +26,8 @@
 #import "UICollectionReusableView+LLModel.h"
 #import "UITableViewHeaderFooterView+LLModel.h"
 
+#import "LLWaterCollectViewAdapter.h"
+#import "LLWaterFlowLayout.h"
+#import "LLWaterCell.h"
+
 #endif /* LLAdapter_h */

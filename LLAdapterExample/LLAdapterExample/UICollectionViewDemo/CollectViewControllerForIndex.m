@@ -10,6 +10,8 @@
 #import <LLAdapter/LLAdapter.h>
 #import <Masonry.h>
 #import "CollectionController.h"
+#import "TestWaterController.h"
+#import "TestWaterForMoreSectionController.h"
 
 @interface CollectViewControllerForIndex ()
 
@@ -43,28 +45,32 @@
     if (!section) {
         section = [self.adapter buildAddNewSection];
     }
-   
+    
     LLTableCell *simpleCell = [section buildAddCell];
     simpleCell.cellClick = ^(LLTableCell *cell, NSIndexPath *indexPath) {
-        
+        CollectionController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectionController"];
+        [self.navigationController pushViewController:vc animated:true];
     };
+    
     simpleCell.loadType = LLCellLoadTypeInner;
     simpleCell.text = @"简单";
     
     LLTableCell *customCell = [section buildAddCell];
     customCell.cellClick = ^(LLTableCell *cell, NSIndexPath *indexPath) {
-        
+        TestWaterController *water = [TestWaterController new];
+        [self.navigationController pushViewController:water animated:true];
     };
     customCell.loadType = LLCellLoadTypeInner;
-    customCell.text = @"自定义";
+    customCell.text = @"流水列表";
     
-    LLTableCell *collectCell = [section buildAddCell];
-    collectCell.cellClick = ^(LLTableCell *cell, NSIndexPath *indexPath) {
-        CollectionController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CollectionController"];
-        [self.navigationController pushViewController:vc animated:true];
+    
+    LLTableCell *moreSections = [section buildAddCell];
+    moreSections.cellClick = ^(LLTableCell *cell, NSIndexPath *indexPath) {
+        TestWaterForMoreSectionController *water = [TestWaterForMoreSectionController new];
+        [self.navigationController pushViewController:water animated:true];
     };
-    collectCell.loadType = LLCellLoadTypeInner;
-    collectCell.text = @"collectCell";
+    moreSections.loadType = LLCellLoadTypeInner;
+    moreSections.text = @"流水列表-多组";
 
     
     [self.adapter reloadData];

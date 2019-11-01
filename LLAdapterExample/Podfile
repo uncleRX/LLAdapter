@@ -6,5 +6,6 @@ target 'LLAdapterExample' do
   # use_frameworks!
   pod 'LLAdapter', :path => '../'
   pod 'Masonry'
+  pod 'SDWebImage', '4.3.0'
 
 end
