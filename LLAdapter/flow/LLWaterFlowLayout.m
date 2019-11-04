@@ -82,18 +82,18 @@ static const CGFloat kDefaultColumnCount = 3;
     //数组 (存放所有cell的布局属性)
     //开始创建每一个cell对应的布局属性
     NSInteger section = [self.collectionView numberOfSections];
-    for (NSInteger i = 0 ; i < section; i++) {
+    for (NSInteger sectionIndex = 0 ;sectionIndex < section; sectionIndex++) {
         //创建位置
-        NSIndexPath * indexPath = [NSIndexPath indexPathForItem:0 inSection:i];
+        NSIndexPath * indexPath = [NSIndexPath indexPathForItem:0 inSection:sectionIndex];
         //获取header的UICollectionViewLayoutAttributes
         UICollectionViewLayoutAttributes *headerAttrs = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
         if (headerAttrs) {
             [self.attrsArray addObject:headerAttrs];
         }
-        NSInteger count = [self.collectionView numberOfItemsInSection:i];
+        NSInteger count = [self.collectionView numberOfItemsInSection:sectionIndex];
         for (int i = 0; i < count; i++) {
             //创建位置
-            NSIndexPath * indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+            NSIndexPath * indexPath = [NSIndexPath indexPathForItem:i inSection:sectionIndex];
             //获取cell布局属性
             UICollectionViewLayoutAttributes * attrs = [self layoutAttributesForItemAtIndexPath:indexPath];
             
@@ -166,11 +166,12 @@ static const CGFloat kDefaultColumnCount = 3;
 
 //设置cell的布局属性
 -(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     UICollectionViewLayoutAttributes * attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     //设置布局属性的frame
     CGFloat collectionViewW = self.collectionView.frame.size.width;
     CGFloat w = (collectionViewW - self.edgeInsets.left - self.edgeInsets.right - (self.columnCount - 1)*self.lineMargin) / self.columnCount;
-    CGFloat h = [self.delegate waterflowLayout:self heightForItemAtIndex:indexPath.item itemWidth:w] + self.extraHeight;
+    CGFloat h = [self.delegate waterflowLayout:self heightForIndexPath:indexPath itemWidth:w] + self.extraHeight;
     //找出高度最短的那一列
     NSInteger destColumn = 0;
     CGFloat minColumnHeight = [self.columnHeights[0] doubleValue];

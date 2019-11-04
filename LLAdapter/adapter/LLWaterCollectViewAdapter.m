@@ -31,10 +31,10 @@
 
 #pragma mark - waterflowLayoutDelegate
 
-- (CGFloat)waterflowLayout:(LLWaterFlowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth {
+- (CGFloat)waterflowLayout:(LLWaterFlowLayout *)waterflowLayout heightForIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth {
     CGFloat aspectRatio = 1.0;
-    LLCollectSection *section = self.sections.firstObject;
-    LLWaterCell *cell = section.datas[index];
+    LLCollectSection *section = self.sections[indexPath.section];
+    LLWaterCell *cell = section.datas[indexPath.item];
     if (cell) {
         aspectRatio = cell.aspectRatio;
     }

@@ -37,34 +37,39 @@
     
     self.adapter = [[LLWaterCollectViewAdapter alloc] initWithCollection:self.collectionView];
     [self.adapter buildAddNewSection]; //创建一组
+    [self.adapter buildAddNewSection]; //创建2组
+
 }
 
 - (void)requestData {
     [TestAPI getDataSuccess:^(NSArray *dataArr) {
-        LLCollectSection *section = self.adapter.sections.firstObject;
-        for (NSDictionary *dic in dataArr) {
-            CGFloat height = [dic[@"height"] doubleValue];
-            CGFloat width = [dic[@"width"] doubleValue];
-            NSString *typeStr = dic[@"type"];
-            LLWaterCell *cell = [LLWaterCell new];
-            cell.aspectRatio = height/width;
-            cell.extraHeight = 0;
-            cell.data = dic[@"imageUrl"];
-            if ([typeStr isEqualToString:@"video"]) {
-                cell.cellClazz = [TestFlowCell1 class];
-                cell.loadType = LLCellLoadTypeOri;
-            }else if ([typeStr isEqualToString:@"poster"]) {
-                cell.cellClazz = [TestFlowCell2 class];
-                cell.loadType = LLCellLoadTypeOri;
-            }else {
-                cell.cellClazz = [TestFlowCell1 class];
-                cell.loadType = LLCellLoadTypeOri;
+       // LLCollectSection *section = self.adapter.sections.firstObject;
+        for (LLCollectSection *section in self.adapter.sections) {
+            NSLog(@"================");
+            for (NSDictionary *dic in dataArr) {
+                CGFloat height = [dic[@"height"] doubleValue];
+                CGFloat width = [dic[@"width"] doubleValue];
+                NSString *typeStr = dic[@"type"];
+                LLWaterCell *cell = [LLWaterCell new];
+                cell.aspectRatio = height/width;
+                cell.extraHeight = 0;
+                cell.data = dic[@"imageUrl"];
+                if ([typeStr isEqualToString:@"video"]) {
+                    cell.cellClazz = [TestFlowCell1 class];
+                    cell.loadType = LLCellLoadTypeOri;
+                }else if ([typeStr isEqualToString:@"poster"]) {
+                    cell.cellClazz = [TestFlowCell2 class];
+                    cell.loadType = LLCellLoadTypeOri;
+                }else {
+                    cell.cellClazz = [TestFlowCell1 class];
+                    cell.loadType = LLCellLoadTypeOri;
+                }
+                //cellClick
+                cell.cellClick = ^(__kindof LLCollectCell *model, NSIndexPath *index) {
+                    NSLog(@"=====index:%ld",index.item);
+                };
+                [section addCell:cell];
             }
-            //cellClick
-            cell.cellClick = ^(__kindof LLCollectCell *model, NSIndexPath *index) {
-                NSLog(@"=====index:%ld",index.item);
-            };
-            [section addCell:cell];
         }
         [self.adapter reloadData];
     }];

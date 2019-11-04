@@ -21,7 +21,7 @@
  @param itemWidth 宽度
  @return  cell的高度
  */
-- (CGFloat)waterflowLayout:(LLWaterFlowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth;
+- (CGFloat)waterflowLayout:(LLWaterFlowLayout *)waterflowLayout heightForIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth;
 
 @optional
 /**组头 size*/
