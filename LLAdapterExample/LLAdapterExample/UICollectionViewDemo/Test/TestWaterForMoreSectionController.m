@@ -45,7 +45,6 @@
     [TestAPI getDataSuccess:^(NSArray *dataArr) {
        // LLCollectSection *section = self.adapter.sections.firstObject;
         for (LLCollectSection *section in self.adapter.sections) {
-            NSLog(@"================");
             for (NSDictionary *dic in dataArr) {
                 CGFloat height = [dic[@"height"] doubleValue];
                 CGFloat width = [dic[@"width"] doubleValue];

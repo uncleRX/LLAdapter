@@ -51,6 +51,8 @@ typedef NS_ENUM(NSInteger, LLTableViewCellSeparatorStyle) {
 @property (copy, nonatomic) NSString *cellNibName;
 /// cell加载类型 默认 LLCellLoadTypeInner
 @property (assign, nonatomic) LLCellLoadType loadType;
+/// 当xib资源不在mainBundle中 需要指定其所在的bundle
+@property (strong, nonatomic) NSBundle *cellBundle;
 
 /// 数据
 @property (strong, nonatomic) LLCellDataType data;

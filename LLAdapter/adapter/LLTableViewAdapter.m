@@ -98,7 +98,7 @@
                     [tableView registerClass:cellModel.cellClazz forCellReuseIdentifier:cellModel.cellIdentity];
                     break;
                 case LLCellLoadTypeNib:
-                    [tableView registerNib:[UINib nibWithNibName:cellModel.cellNibName bundle:nil] forCellReuseIdentifier:cellModel.cellIdentity];
+                    [tableView registerNib:[UINib nibWithNibName:cellModel.cellNibName bundle:cellModel.cellBundle] forCellReuseIdentifier:cellModel.cellIdentity];
                     break;
                 case LLCellLoadTypeOri:
                     [tableView registerClass:cellModel.cellClazz forCellReuseIdentifier:cellModel.cellIdentity];
@@ -279,7 +279,7 @@
             //[collectionView registerClass:celModel.cellClazz forCellWithReuseIdentifier:[celModel.cellClazz ll_className]];
             break;
         case LLCellLoadTypeNib:
-            [tableView registerNib:[UINib nibWithNibName:[cellModel cellNibName] bundle:nil] forHeaderFooterViewReuseIdentifier:cellIdentity];
+            [tableView registerNib:[UINib nibWithNibName:[cellModel cellNibName] bundle:cellModel.cellBundle] forHeaderFooterViewReuseIdentifier:cellIdentity];
             break;
         case LLCellLoadTypeOri:
             [tableView registerClass:cellModel.cellClazz forHeaderFooterViewReuseIdentifier:cellIdentity];

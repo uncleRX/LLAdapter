@@ -77,7 +77,7 @@
             //[collectionView registerClass:celModel.cellClazz forCellWithReuseIdentifier:[celModel.cellClazz ll_className]];
             break;
         case LLCellLoadTypeNib:
-            [collectionView registerNib:[UINib nibWithNibName:[cellModel cellNibName] bundle:nil] forCellWithReuseIdentifier:[cellModel cellIdentity]];
+            [collectionView registerNib:[UINib nibWithNibName:[cellModel cellNibName] bundle:cellModel.cellBundle] forCellWithReuseIdentifier:[cellModel cellIdentity]];
             break;
         case LLCellLoadTypeOri:
             [collectionView registerClass:cellModel.cellClazz forCellWithReuseIdentifier:[cellModel cellIdentity]];
@@ -115,7 +115,7 @@
             //[collectionView registerClass:celModel.cellClazz forCellWithReuseIdentifier:[celModel.cellClazz ll_className]];
             break;
         case LLCellLoadTypeNib:
-            [collectionView registerNib:[UINib nibWithNibName:[cellModel cellNibName] bundle:nil] forSupplementaryViewOfKind:kind withReuseIdentifier:cellIdentity];
+            [collectionView registerNib:[UINib nibWithNibName:[cellModel cellNibName] bundle:cellModel.cellBundle] forSupplementaryViewOfKind:kind withReuseIdentifier:cellIdentity];
             break;
         case LLCellLoadTypeOri:
             [collectionView registerClass:cellModel.cellClazz forSupplementaryViewOfKind:kind withReuseIdentifier:cellIdentity];
